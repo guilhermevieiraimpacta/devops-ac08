@@ -63,3 +63,18 @@ def cadastro_cursos(request):
         })
     )
 
+
+def inscricao_candidatos(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/inscricao_candidatos.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Inscricao de Candidatos',
+            'candidatos': Candidatos.objects.all(),
+            'year':datetime.now().year,
+        })
+
+)
+
